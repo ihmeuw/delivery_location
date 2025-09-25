@@ -8,12 +8,6 @@ This sub-project is focused on mapping the `delivery_location` variable from mic
 
 ## Sub-Project Contents
 
-| Directory or File | Description |
-| --- | --- |
-| [`csection_collapse/`](https://stash.ihme.washington.edu/projects/HS/repos/pcp/browse/delivery_location_remapping/csection_collapse) | Contains code for reporting metrics like count of deliveries and csection prop by NID and delivery location |
-| [`initial_categorization.py`](https://stash.ihme.washington.edu/projects/HS/repos/pcp/browse/delivery_location_remapping/initial_categorization.py) | This script creates an initial, regex-based categorization of `delivery_location` values from survey microdata for manual review. |
-| [`README.md`](https://stash.ihme.washington.edu/projects/HS/repos/pcp/browse/delivery_location_remapping/README.md) | Provides an overview of the sub-project and its contents. |
-
 In the `prep` folder, the `csection_collapse/csection_collapse_by_delivery_location.R` collapses extracted microdata on NID and delivery location (the raw values of delivery location reported from surveys), to show aggregate metrics such as proportion of deliveries for that location/year/NID and delivery location response value which were C-Sections. We found this collapsed dataset useful for identifying patterns in the data and for identifying potential errors in the mapping of delivery location values. For instance when unsure whether facility level should be mapped to "prim" or "hosp", C-section prop, for responses with enough total deliveries, can be used to determine if the facility is likely a hospital or primary care.
 
 In addition, `initial_categorization.py` assigned an initial categorization to `delivery_location` values based on regex patterns. This initial categorization was used as a starting point for manual review of the `delivery_location` values.
