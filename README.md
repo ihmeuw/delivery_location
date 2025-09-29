@@ -4,17 +4,15 @@ This project is part of the GBD intrapartum care and burden estimation project f
 
 ## Sub-Project Description
 
-This sub-project is focused on mapping the `delivery_location` variable from microdata extractions. The goal is to create a new categorization of the `delivery_location_mapped` field that is more informative and useful for analysis, and which contains information on sector/ownership (namely, public vs. private vs. non-governmental organization) and facility level (hospital, primary care, or split).
+This sub-project is focused on mapping the `delivery_location` variable from microdata. The goal is to create a new categorization of the `delivery_location_mapped` field that is more informative and useful for analysis, and which contains information on sector/ownership (namely, public vs. private vs. non-governmental organization) and facility level (hospital, primary care, or split).
 
 ## Sub-Project Contents
 
 In the `prep` folder, the `csection_collapse/csection_collapse_by_delivery_location.R` collapses extracted microdata on NID and delivery location (the raw values of delivery location reported from surveys), to show aggregate metrics such as proportion of deliveries for that location/year/NID and delivery location response value which were C-Sections. We found this collapsed dataset useful for identifying patterns in the data and for identifying potential errors in the mapping of delivery location values. For instance when unsure whether facility level should be mapped to "prim" or "hosp", C-section prop, for responses with enough total deliveries, can be used to determine if the facility is likely a hospital or primary care.
 
-In addition, `initial_categorization.py` assigned an initial categorization to `delivery_location` values based on regex patterns. This initial categorization was used as a starting point for manual review of the `delivery_location` values.
+In addition, `initial_categorization.py` assigned an initial categorization to `delivery_location` values based on regex patterns. This initial categorization was used as a starting point for manual review of the `delivery_location` values. That said, the majority of the re-mapping process involves manual review of specific `delivery_location` values from survey microdata, by looking up the NID that the value came from in GHDx and considering any documentation, including questionairres, in tandem with the survey year and location. 
 
-That said, the majority of the re-mapping process involves manual review of specific `delivery_location` values from survey microdata, by looking up the NID that the value came from in GHDx and considering any documentation, including questionairres, in tandem with the survey year and location. 
-
-The `pipeline` then goes through data collapse, processing prior to modeling, launching st-gpr, post-processing and figure creation.
+The `pipeline` folder then goes through data collapse, processing prior to modeling, launching st-gpr, post-processing and figure creation.
 
 ## New Categorization
 
